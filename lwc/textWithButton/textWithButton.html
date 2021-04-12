@@ -1,16 +1,6 @@
 <template>
-    <!--lightning-layout>
-        <lightning-layout-item>
-            <div class="slds-truncate">{text} {text} {text}</div>
-        </lightning-layout-item>
-        <lightning-layout-item>
-            <lightning-button-icon icon-name="utility:new_window" variant="bare" alternative-text="Expandir" title="Expandir"
-                onclick={handleButtonClick}>
-        </lightning-button-icon>
-        </lightning-layout-item>
-    </lightning-layout-->
     <div class="container">
-        <div class="slds-truncate">{text} {text} {text}</div>
+        <div class="slds-truncate" title={text}>{text}</div>
         <div class="button">
             <lightning-button-icon 
                 icon-name="utility:new_window" 

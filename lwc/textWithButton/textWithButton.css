@@ -5,9 +5,4 @@
 
 .button {
     padding-left: 5px;
-    display: none;
-}
-
-.container:hover .button {
-    display: flex;
 }
