@@ -1,7 +1,7 @@
 import LightningDatatable from 'lightning/datatable';
 import textWithButton from './textWithButton';
  
-export default class CustomLightningDatatable extends LightningDatatable {
+export default class CustomDatatable extends LightningDatatable {
     
   static customTypes = {
       textWithButton: {
