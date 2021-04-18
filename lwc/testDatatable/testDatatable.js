@@ -1,21 +1,37 @@
 import { LightningElement } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class App extends LightningElement {
+export default class TestDatatable extends NavigationMixin(LightningElement) {
 
     columns = [
-        { label: 'Nome', fieldName: 'id', type: 'textWithButton', typeAttributes: { text: { fieldName: 'name' } }},
-        { label: 'Idade', fieldName: 'age', type: 'number' }
+        { label: 'Nome', fieldName: 'name', type: 'textWithButton', typeAttributes: { recordId: { fieldName: 'id' } }},
+        { label: 'Idade', fieldName: 'age', type: 'number' },
+        { label: 'Gênero', fieldName: 'gender', type: 'text' },
+        { label: 'Profissão', fieldName: 'occupation', type: 'text' }
     ];
 
     data = [
-        { id: 1, name: 'João', age: 15 },
-        { id: 2, name: 'Maria', age: 54 },
-        { id: 3, name: 'Bruno', age: 29 },
-        { id: 4, name: 'Guilherme', age: 25 },
-        { id: 5, name: 'Joana', age: 18 },
-        { id: 6, name: 'Josué', age: 28 },
-        { id: 7, name: 'Minerva', age: 35 }, 
-        { id: 8, name: 'Liana', age: 52 },
+        { id: 1, name: 'João Souza', age: 15, gender: 'Masculino', occupation: 'Desenvolvedor' },
+        { id: 2, name: 'Maria de Castro', age: 54, gender: 'Feminino', occupation: 'Contadora' },
+        { id: 3, name: 'Bruno Figueiredo', age: 29, gender: 'Masculino', occupation: 'Gerente' },
+        { id: 4, name: 'Guilherme Soares', age: 25, gender: 'Masculino', occupation: 'Administrador' },
+        { id: 5, name: 'Joana Diaz', age: 18, gender: 'Feminino', occupation: 'Analista de RH' },
+        { id: 6, name: 'Josué Pedroso', age: 28, gender: 'Masculino', occupation: 'Zelador' },
+        { id: 7, name: 'Minerva Rodrigues', age: 35, gender: 'Feminino', occupation: 'Jornalista' }, 
+        { id: 8, name: 'Liana Santana', age: 52, gender: 'Feminino', occupation: 'CEO' },
     ];
+
+    handleButtonClick(event) {
+        const { recordId } = event.detail;
+        this[NavigationMixin.GenerateUrl]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId,
+                actionName: 'view',
+            },
+        }).then(url => {
+            window.open(url, '_blank');
+        });
+    }
 
 }

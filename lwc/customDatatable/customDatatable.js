@@ -6,7 +6,7 @@ export default class CustomLightningDatatable extends LightningDatatable {
   static customTypes = {
       textWithButton: {
           template: textWithButton,
-          typeAttributes: ['recordId', 'text']
+          typeAttributes: [ 'value', 'recordId' ]
       }
   }
 

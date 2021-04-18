@@ -1,0 +1,7 @@
+.button {
+    display: none;
+}
+
+.container:hover .button {
+    display: flex;
+}

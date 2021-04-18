@@ -1,8 +1,11 @@
 <template>
-    <c-custom-datatable 
-        key-field="id"
-        data={data}
-        columns={columns}
-        hide-checkbox-column>
-    </c-custom-datatable>
+    <div class="slds-card slds-p-around_medium">
+        <c-custom-datatable 
+            key-field="id"
+            data={data}
+            columns={columns}
+            onbuttonclick={handleButtonClick}
+            hide-checkbox-column>
+        </c-custom-datatable>
+    </div>
 </template>
